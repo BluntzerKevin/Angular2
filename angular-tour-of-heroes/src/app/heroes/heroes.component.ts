@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'C:/Users/Kévin/tp_angular2/Bluntzer/angular-tour-of-heroes/src/app/hero';
+import { HEROES } from 'C:/Users/Kévin/tp_angular2/Bluntzer/angular-tour-of-heroes/src/app/mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -9,10 +10,16 @@ import { Hero } from 'C:/Users/Kévin/tp_angular2/Bluntzer/angular-tour-of-heroe
 
 export class HeroesComponent implements OnInit {
 	
-	  hero: Hero ={
+	  heroes=HEROES;
+	
+	selectedHero: Hero;
+	
+	  /**hero: Hero ={
 		  id: 1,
 		  name : 'windstorm'
-	  };
+	  };*/
+	  
+	  
 
   ngOnInit() {
 	 
@@ -20,4 +27,7 @@ export class HeroesComponent implements OnInit {
   
   constructor() { }
   
+    onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
